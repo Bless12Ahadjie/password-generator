@@ -8,4 +8,6 @@
     <string name="character_length">Character Length</string>
     <string name="include_uppercase_letters">Include Uppercase Letters</string>
     <string name="generate_password">GENERATE PASSWORD</string>
+    <string name="strength">STRENGTH</string>
+    <string name="too_weak">Too Weak</string>
 </resources>

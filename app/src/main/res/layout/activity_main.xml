@@ -232,13 +232,48 @@
                  android:id="@+id/strength"
                  android:layout_width="271dp"
                  android:layout_height="50dp"
+                 android:layout_marginStart="10dp"
                  android:layout_gravity="center"
                  app:cardBackgroundColor="@color/deepBlack"
                  >
-                 <TextView
+                 <LinearLayout
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:text="Hey man"/>
+                     android:orientation="horizontal"
+                     android:weightSum="1"
+                     android:layout_gravity="center"
+                    >
+
+                     <TextView
+                         android:layout_width="-80dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="20dp"
+                         android:layout_weight="0.8"
+                         android:text="@string/strength"
+                         android:textSize="12sp"
+                         android:textColor="#9E9E9E"
+                         android:layout_gravity="center"
+                         android:paddingEnd="40dp"/>
+
+            <LinearLayout
+                android:id="@+id/strength_indicator_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:textSize="11sp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/too_weak"
+                    android:textColor="#9E9E9E"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+                 </LinearLayout>
 
              </androidx.cardview.widget.CardView>
          </LinearLayout>
@@ -263,6 +298,7 @@
 
 
     <Button
+        android:id="@+id/myButton"
         android:layout_width="286dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
@@ -272,6 +308,7 @@
         android:text="@string/check_password_strength"
         android:drawableStart="@drawable/shield"
         android:paddingStart="15dp"
+        android:onClick="navigateToNewView"
         android:textColor="@color/white" />
 
 
