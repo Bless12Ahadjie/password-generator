@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val strengthIndicatorContainer = findViewById<LinearLayout>(R.id.strength_indicator_container)
         val layoutInflater = LayoutInflater.from(this)
 
+
         for (i in 1..5) {
             val strengthIndicatorView = layoutInflater.inflate(R.layout.dot, null)
             strengthIndicatorContainer.addView(strengthIndicatorView)
