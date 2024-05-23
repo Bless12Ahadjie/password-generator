@@ -1,6 +1,7 @@
 package com.example.passwordgenerator
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
@@ -46,9 +47,12 @@ class MainActivity : AppCompatActivity() {
             strengthIndicatorContainer.addView(strengthIndicatorView)
         }
 
-        val btn = findViewById<Button>(R.id.myButton)
+        val navigateBtn = findViewById<Button>(R.id.myButton)
 
-        btn.setOnClickListener {
+        navigateBtn.setOnClickListener {
+            val intent = Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+
 
         }
 
