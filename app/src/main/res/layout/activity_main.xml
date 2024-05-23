@@ -51,6 +51,7 @@
                 android:layout_gravity="center">
 
                 <TextView
+                    android:id="@+id/generatedPassword"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="33dp"
@@ -60,6 +61,7 @@
                     android:layout_gravity="center"/>
 
                 <ImageButton
+                    android:id="@+id/copyPassword"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="0.2"
