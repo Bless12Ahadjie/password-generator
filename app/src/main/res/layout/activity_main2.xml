@@ -5,6 +5,146 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    android:background="@color/deepBlack"
+    tools:context=".MainActivity2"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="51dp">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/deepBlack"
+        android:paddingEnd="5dp"
+        android:src="@drawable/lightmode"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints,RtlSymmetry,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/check_password"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="309dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/lightBlack"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:hint="@string/paste_password_here"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="30dp"
+            android:textColor="@color/white"
+            android:textColorHint="#9E9E9E"
+            android:textSize="15sp"
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="193dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="309dp"
+        android:layout_height="219dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/lightBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="TextSizeCheck">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/strength"
+            android:layout_width="271dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/deepBlack">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="-80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="0.8"
+                    android:paddingEnd="40dp"
+                    android:text="@string/strength"
+                    android:textColor="#9E9E9E"
+                    android:textSize="12sp"
+                    tools:ignore="InefficientWeight,RtlSymmetry" />
+
+                <LinearLayout
+                    android:id="@+id/strength_indicator_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="0dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/too_weak"
+                        android:textColor="#9E9E9E"
+                        android:textSize="11sp"
+                        tools:ignore="RtlSymmetry" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="286dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="-30dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/mybutton"
+        android:drawableStart="@drawable/lock"
+        android:fontFamily="@font/roboto"
+        android:paddingStart="15dp"
+        android:text="@string/generate_new_password"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.141"
+        tools:ignore="RtlSymmetry" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
