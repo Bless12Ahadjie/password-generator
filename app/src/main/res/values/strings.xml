@@ -10,4 +10,11 @@
     <string name="generate_password">GENERATE PASSWORD</string>
     <string name="strength">STRENGTH</string>
     <string name="too_weak">Too Weak</string>
+    <string name="include_symbols">Include Symbols</string>
+    <string name="include_numbers">Include Numbers</string>
+    <string name="include_lowercase_letters">Include Lowercase letters</string>
+    <string name="_0">0</string>
+    <string name="check_password">Check Password Strength</string>
+    <string name="paste_password_here">Paste password here</string>
+    <string name="generate_new_password">GENERATE NEW PASSWORD</string>
 </resources>
