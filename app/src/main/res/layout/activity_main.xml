@@ -9,6 +9,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/deepBlack"
+        android:src="@drawable/lightmode"
+        android:paddingEnd="5dp"
+        tools:ignore="ContentDescription,RtlSymmetry,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:layout_width="match_parent"
@@ -80,14 +88,15 @@
          android:layout_height="384dp"
          android:layout_marginStart="24dp"
          android:layout_marginTop="37dp"
-         app:cardBackgroundColor="@color/lightBlack" >
+         app:cardBackgroundColor="@color/lightBlack"
+         tools:ignore="TextSizeCheck">
 
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="horizontal"
+             android:layout_marginStart="10dp"
              android:layout_marginTop="10dp"
-             android:layout_marginStart="10dp">
+             android:orientation="horizontal">
 
              <LinearLayout
                  android:layout_width="0dp"
@@ -100,8 +109,7 @@
                      android:layout_height="wrap_content"
                      android:text="@string/character_length"
                      android:textColor="@color/white"
-                     android:textSize="15sp"
-                     />
+                     android:textSize="15sp" />
 
              </LinearLayout>
 
@@ -109,11 +117,12 @@
                  android:id="@+id/numberTextView"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:textColor="@color/darkModeGreen"
-                 android:text="0"
-                 android:textSize="20sp"
                  android:layout_gravity="center"
-                 android:paddingEnd="13dp" />
+                 android:paddingEnd="13dp"
+                 android:text="@string/_0"
+                 android:textColor="@color/darkModeGreen"
+                 android:textSize="20sp"
+                 tools:ignore="RtlSymmetry" />
 
          </LinearLayout>
 
@@ -122,22 +131,22 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_marginTop="40dp"
-             android:max="50" />
-
+             android:max="25" />
 
 
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="horizontal"
              android:layout_marginTop="80dp"
-             android:gravity="center_vertical">
+             android:gravity="center_vertical"
+             android:orientation="horizontal">
 
              <CheckBox
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:minWidth="48dp"
-                 android:minHeight="48dp" />
+                 android:minHeight="48dp"
+                 tools:ignore="DuplicateSpeakableTextCheck" />
 
              <TextView
                  android:layout_width="0dp"
@@ -149,12 +158,13 @@
 
 
          </LinearLayout>
+
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="horizontal"
              android:layout_marginTop="110dp"
-             android:gravity="center_vertical">
+             android:gravity="center_vertical"
+             android:orientation="horizontal">
 
              <CheckBox
                  android:layout_width="wrap_content"
@@ -167,17 +177,18 @@
                  android:layout_height="wrap_content"
                  android:layout_marginStart="16dp"
                  android:layout_weight="1"
-                 android:text="Include Lowercase letters"
+                 android:text="@string/include_lowercase_letters"
                  android:textColor="#9E9E9E" />
 
 
          </LinearLayout>
+
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="horizontal"
              android:layout_marginTop="140dp"
-             android:gravity="center_vertical">
+             android:gravity="center_vertical"
+             android:orientation="horizontal">
 
              <CheckBox
                  android:layout_width="wrap_content"
@@ -190,17 +201,18 @@
                  android:layout_height="wrap_content"
                  android:layout_marginStart="16dp"
                  android:layout_weight="1"
-                 android:text="Include Numbers"
+                 android:text="@string/include_numbers"
                  android:textColor="#9E9E9E" />
 
 
          </LinearLayout>
+
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="horizontal"
              android:layout_marginTop="170dp"
-             android:gravity="center_vertical">
+             android:gravity="center_vertical"
+             android:orientation="horizontal">
 
              <CheckBox
                  android:layout_width="wrap_content"
@@ -213,12 +225,11 @@
                  android:layout_height="wrap_content"
                  android:layout_marginStart="16dp"
                  android:layout_weight="1"
-                 android:text="Include Symbols"
+                 android:text="@string/include_symbols"
                  android:textColor="#9E9E9E" />
 
 
          </LinearLayout>
-
 
 
          <LinearLayout
@@ -232,51 +243,53 @@
                  android:id="@+id/strength"
                  android:layout_width="271dp"
                  android:layout_height="50dp"
-                 android:layout_marginStart="10dp"
                  android:layout_gravity="center"
-                 app:cardBackgroundColor="@color/deepBlack"
-                 >
+                 android:layout_marginStart="10dp"
+                 app:cardBackgroundColor="@color/deepBlack">
+
                  <LinearLayout
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:orientation="horizontal"
-                     android:weightSum="1"
                      android:layout_gravity="center"
-                    >
+                     android:orientation="horizontal"
+                     android:weightSum="1">
 
                      <TextView
                          android:layout_width="-80dp"
                          android:layout_height="wrap_content"
+                         android:layout_gravity="center"
                          android:layout_marginStart="20dp"
                          android:layout_weight="0.8"
+                         android:paddingEnd="40dp"
                          android:text="@string/strength"
-                         android:textSize="12sp"
                          android:textColor="#9E9E9E"
-                         android:layout_gravity="center"
-                         android:paddingEnd="40dp"/>
+                         android:textSize="12sp"
+                         tools:ignore="InefficientWeight,RtlSymmetry" />
 
-            <LinearLayout
-                android:id="@+id/strength_indicator_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                     <LinearLayout
+                         android:id="@+id/strength_indicator_container"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal">
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:textSize="11sp"
-                    android:paddingEnd="5dp"
-                    android:text="@string/too_weak"
-                    android:textColor="#9E9E9E"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:layout_marginStart="0dp"
+                             android:paddingEnd="5dp"
+                             android:text="@string/too_weak"
+                             android:textColor="#9E9E9E"
+                             android:textSize="11sp"
+                             tools:ignore="RtlSymmetry" />
+                     </LinearLayout>
 
                  </LinearLayout>
 
              </androidx.cardview.widget.CardView>
          </LinearLayout>
+
          <Button
              android:layout_width="286dp"
              android:layout_height="48dp"
@@ -309,7 +322,8 @@
         android:drawableStart="@drawable/shield"
         android:paddingStart="15dp"
         android:onClick="navigateToNewView"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        tools:ignore="RtlSymmetry" />
 
 
 </LinearLayout>

@@ -4,14 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -43,14 +41,18 @@ class MainActivity : AppCompatActivity() {
         val strengthIndicatorContainer = findViewById<LinearLayout>(R.id.strength_indicator_container)
         val layoutInflater = LayoutInflater.from(this)
 
+
         for (i in 1..5) {
             val strengthIndicatorView = layoutInflater.inflate(R.layout.dot, null)
             strengthIndicatorContainer.addView(strengthIndicatorView)
         }
 
-        val btn = findViewById<Button>(R.id.myButton)
+        val navigateBtn = findViewById<Button>(R.id.myButton)
 
-        btn.setOnClickListener {
+        navigateBtn.setOnClickListener {
+            val intent = Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+
 
         }
 
