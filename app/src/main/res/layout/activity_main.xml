@@ -128,13 +128,13 @@
 
          </LinearLayout>
 
+
          <SeekBar
              android:id="@+id/seekBar"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_marginTop="40dp"
              android:max="25" />
-
 
          <LinearLayout
              android:layout_width="match_parent"
@@ -144,6 +144,7 @@
              android:orientation="horizontal">
 
              <CheckBox
+                 android:id="@+id/cbIncludeUpperCase"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:minWidth="48dp"
@@ -169,6 +170,7 @@
              android:orientation="horizontal">
 
              <CheckBox
+                 android:id="@+id/cbIncludeLowerCase"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:minWidth="48dp"
@@ -193,6 +195,7 @@
              android:orientation="horizontal">
 
              <CheckBox
+                 android:id="@+id/cbIncludeNumbers"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:minWidth="48dp"
@@ -217,6 +220,7 @@
              android:orientation="horizontal">
 
              <CheckBox
+                 android:id="@+id/cbIncludeSymbols"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:minWidth="48dp"
@@ -293,6 +297,7 @@
          </LinearLayout>
 
          <Button
+             android:id="@+id/myGenerateButton"
              android:layout_width="286dp"
              android:layout_height="48dp"
              android:layout_gravity="center"
