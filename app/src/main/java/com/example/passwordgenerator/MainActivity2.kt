@@ -38,12 +38,6 @@ class MainActivity2 : AppCompatActivity() {
             strengthIndicatorContainer.addView(strengthIndicatorView)
         }
 
-
-
-
-
-
-
     }
 
 
