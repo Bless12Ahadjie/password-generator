@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -62,7 +63,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
 //        looping the dot 5 times
         val strengthIndicatorContainer = findViewById<LinearLayout>(R.id.strength_indicator_container)
         val layoutInflater = LayoutInflater.from(this)
@@ -84,8 +84,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-//        copping the text from the password view
         val showPasswordCardView: CardView = findViewById(R.id.showPassword)
         val textViewForPassword: TextView = showPasswordCardView.findViewById(R.id.generatedPassword)
         val copier: ImageButton = showPasswordCardView.findViewById(R.id.copyPassword)
@@ -99,14 +97,24 @@ class MainActivity : AppCompatActivity() {
             clipboard.setPrimaryClip(clipboardData)
             Toast.makeText(this,"copied",Toast.LENGTH_SHORT).show()
         }
-
         generatePasswordBtn.setOnClickListener{
             val password = generatePassword(length = numberTextView.text.toString().toInt(),
                 useNumbers = numbers.isChecked, useSymbols = symbols.isChecked, useUpperCase = upperCase.isChecked)
 
+            updateStrengthIndicator(evaluatePasswordStrength(password))
             textViewForPassword.text = password
         }
+    }
 
+    private fun evaluatePasswordStrength(password: String): Int {
+        var strengthPoints = 0
+        if (password.length >= 8) strengthPoints += 1
+        if (password.length >= 12) strengthPoints += 1
+        if (password.any { it.isUpperCase() }) strengthPoints += 1
+        if (password.any { it.isDigit() }) strengthPoints += 1
+        val specialCharacters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
+        if (password.any { it in specialCharacters }) strengthPoints += 1
+        return strengthPoints.coerceIn(1, 5)
     }
 
     //Generate Password
@@ -116,24 +124,17 @@ class MainActivity : AppCompatActivity() {
         val digits = "0123456789"
         val specialCharacters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
 
-        // Initialize the character set with only digits
         var allCharacters = lowerCaseLetters
 
-        // Add lowercase letters if required
+
         if (useNumbers)
             allCharacters += lowerCaseLetters
-
-        // Add uppercase letters if required
         if (useUpperCase)
             allCharacters += upperCaseLetters
-
-        // Add symbols if required
         if (useSymbols)
             allCharacters += specialCharacters
 
         val password = StringBuilder()
-
-        // Ensure the password has at least one of each required character type
         if (useNumbers)
             password.append(lowerCaseLetters.random())
         if (useUpperCase)
@@ -141,13 +142,39 @@ class MainActivity : AppCompatActivity() {
         if (useSymbols)
             password.append(specialCharacters.random())
         password.append(digits.random())
-
-        // Fill the rest of the password length with random characters from all character sets
         for (i in 4 until length) {
             password.append(allCharacters.random())
         }
-
-        // Shuffle the password to ensure the first four characters are not always in the same order
         return password.toList().shuffled().joinToString("")
     }
+
+    private fun updateStrengthIndicator(strength: Int) {
+        val strengthTextView = findViewById<TextView>(R.id.strengthText)
+        val strengthIndicatorContainer = findViewById<LinearLayout>(R.id.strength_indicator_container)
+        val layoutInflater = LayoutInflater.from(this)
+        strengthIndicatorContainer.removeAllViews()
+
+        for (i in 1..5) {
+            val strengthIndicatorView = layoutInflater.inflate(R.layout.dot, null)
+            val cardView = strengthIndicatorView.findViewById<CardView>(R.id.strength_indicator_card)
+
+            if (i <= strength) {
+                cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.dot_green)) // Highlight color
+            } else {
+                cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.lightBlack)) // Default color
+            }
+
+            strengthIndicatorContainer.addView(strengthIndicatorView)
+
+            when (strength) {
+                1 -> strengthTextView.text = "Too Weak"
+                2 -> strengthTextView.text = "Weak"
+                3 -> strengthTextView.text = "Normal"
+                4 -> strengthTextView.text = "Strong"
+                5 -> strengthTextView.text = "Very Strong"
+                else -> strengthTextView.text = "Weak"
+            }
+        }
+    }
+
 }
