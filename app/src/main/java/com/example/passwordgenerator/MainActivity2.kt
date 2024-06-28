@@ -26,11 +26,8 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val navigateBtn = findViewById<Button>(R.id.myButton)
-
         val editText = findViewById<EditText>(R.id.EditText)
-
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 updateStrengthIndicator(evaluatePasswordStrength(s.toString()))
@@ -43,7 +40,6 @@ class MainActivity2 : AppCompatActivity() {
                 updateStrengthIndicator(evaluatePasswordStrength(s.toString()))
             }
         })
-
 
         navigateBtn.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
